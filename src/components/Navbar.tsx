@@ -5,10 +5,10 @@ import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const links = [
-  { label: "Inicio", href: "#inicio" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projetos", href: "#projects" },
-  { label: "Contato", href: "#contact" },
+  { label: "Inicio",   href: "#inicio" },
+  { label: "Skills",   href: "#skills" },
+  { label: "Projetos", href: "#projetos" }, 
+  { label: "Contato",  href: "#contato" },   
 ];
 
 export function Navbar() {
@@ -16,37 +16,27 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
-  const menuRef = useRef<HTMLDivElement | null>(null);
+  const menuRef   = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
-  // efeito de scroll no header
   useEffect(() => {
     return scrollY.on("change", y => {
       setScrolled(y > 20);
-      if (open) setOpen(false); // fecha ao rolar
+      if (open) setOpen(false);
     });
   }, [scrollY, open]);
 
-  // fechar ao clicar fora
   useEffect(() => {
     if (!open) return;
-
     function handleClickOutside(e: MouseEvent) {
       const target = e.target as Node;
-
       if (
-        menuRef.current &&
-        !menuRef.current.contains(target) &&
-        buttonRef.current &&
-        !buttonRef.current.contains(target)
-      ) {
-        setOpen(false);
-      }
+        menuRef.current   && !menuRef.current.contains(target) &&
+        buttonRef.current && !buttonRef.current.contains(target)
+      ) setOpen(false);
     }
-
     document.addEventListener("mousedown", handleClickOutside);
-    return () =>
-      document.removeEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [open]);
 
   return (
@@ -59,7 +49,11 @@ export function Navbar() {
         }`}
       >
         <nav className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
-          <span className="font-semibold text-white">SLR</span>
+          <span className="font-mono text-base tracking-tight select-none">
+            <span className="text-fuchsia-400">{"<"}</span>
+            <span className="text-white font-medium">SLR</span>
+            <span className="text-fuchsia-400">{" />"}</span>
+          </span>
 
           {/* Desktop */}
           <div className="hidden md:flex gap-6 text-sm text-zinc-400">
@@ -98,7 +92,11 @@ export function Navbar() {
             className="fixed right-0 top-0 z-[60] h-full w-[260px] bg-black/95 backdrop-blur border-l border-white/5 md:hidden"
           >
             <div className="flex items-center justify-between px-6 h-20">
-              <span className="font-semibold text-white">Menu</span>
+              <span className="font-mono text-sm tracking-tight select-none">
+                <span className="text-fuchsia-400">{"<"}</span>
+                <span className="text-white font-medium">SLR</span>
+                <span className="text-fuchsia-400">{" />"}</span>
+              </span>
               <button
                 onClick={() => setOpen(false)}
                 className="text-white"

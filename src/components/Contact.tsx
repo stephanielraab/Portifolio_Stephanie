@@ -5,10 +5,7 @@ import { motion } from "framer-motion";
 
 export function Contact() {
   return (
-    <section
-      id="contact"
-      className="relative bg-brand-dark pt-32 pb-40 scroll-mt-24"
-    >
+    <div className="relative pt-32 pb-40">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -38,17 +35,14 @@ export function Contact() {
         </p>
 
         <div className="mt-12 flex flex-wrap justify-center gap-5">
-          {/* CTA PRINCIPAL */}
           <a
             href="mailto:stephanie.lisboa@outlook.com"
             className="
               group inline-flex items-center gap-3
-              rounded-xl
-              bg-white
+              rounded-xl bg-white
               px-7 py-3
               text-sm font-medium text-black
-              transition-all
-              hover:bg-zinc-200
+              transition-all hover:bg-zinc-200
             "
           >
             <Mail size={18} />
@@ -59,19 +53,15 @@ export function Contact() {
             />
           </a>
 
-          {/* LINKS */}
           <a
             href="https://www.linkedin.com/in/stephanie-lisboa-raab-57996166/"
             target="_blank"
+            rel="noopener noreferrer"
             className="
               inline-flex items-center gap-3
-              rounded-xl
-              border border-white/10
-              px-6 py-3
-              text-sm text-white
-              transition
-              hover:border-white/20
-              hover:bg-white/5
+              rounded-xl border border-white/10
+              px-6 py-3 text-sm text-white
+              transition hover:border-white/20 hover:bg-white/5
             "
           >
             <Linkedin size={18} />
@@ -81,22 +71,18 @@ export function Contact() {
           <a
             href="https://github.com/stephanielraab"
             target="_blank"
+            rel="noopener noreferrer"
             className="
               inline-flex items-center gap-3
-              rounded-xl
-              border border-white/10
-              px-6 py-3
-              text-sm text-white
-              transition
-              hover:border-white/20
-              hover:bg-white/5
+              rounded-xl border border-white/10
+              px-6 py-3 text-sm text-white
+              transition hover:border-white/20 hover:bg-white/5
             "
           >
             <Github size={18} />
             GitHub
           </a>
 
-          {/* CV DISCRETO */}
           <a
             href="/cv/Curriculo_Stephanie_Lisboa_Raab.pdf"
             download
@@ -104,19 +90,15 @@ export function Contact() {
             rel="noopener noreferrer"
             className="
               inline-flex items-center
-              px-6 py-3
-              text-sm text-zinc-400
-              underline underline-offset-8
-              decoration-white/20
-              transition
-              hover:text-white
-              hover:decoration-white
+              px-6 py-3 text-sm text-zinc-400
+              underline underline-offset-8 decoration-white/20
+              transition hover:text-white hover:decoration-white
             "
           >
             Download CV
           </a>
         </div>
       </motion.div>
-    </section>
+    </div>
   );
 }

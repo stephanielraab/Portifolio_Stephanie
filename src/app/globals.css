@@ -3,11 +3,12 @@
 @tailwind utilities;
 
 html {
-  background-color: #631942;
-  background-attachment: fixed;
+  background-color: #2a0819;
 }
 
 body {
   background: transparent;
   font-family: var(--font-sans);
+  position: relative;
+  z-index: 1;
 }
