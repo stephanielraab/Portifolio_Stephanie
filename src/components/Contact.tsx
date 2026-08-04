@@ -36,7 +36,7 @@ export function Contact() {
 
         <div className="mt-12 flex flex-wrap justify-center gap-5">
           <a
-            href="mailto:stephanie.lisboa@outlook.com"
+            href="mailto:stephanielraab@gmail.com"
             className="
               group inline-flex items-center gap-3
               rounded-xl bg-white
